@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./main.js" defer></script>
+</head>
+<body>
+    <!--아이콘들을 담을 공간을 만듦-->
+    <div class="navigation">
+        <!-- 아이콘들을 정렬하여 css를 입히기 위한 ul로 작업 -->
+        <ul>
+            <!-- 첫번째 아이콘의 정렬 -->
+            <li class="list active">
+                <!-- a태그로 아이콘과 텍스트에 경로를 입힌다. -->
+                <a href="#">
+                    <!-- span 에다가 cdn으로 가져온 아이콘을 넣음 -->
+                    <span class="icon">
+                        <ion-icon name="home-outline"></ion-icon>
+                    </span>
+                    <!-- 아이콘 옆에 아이콘을 설명할 텍스트를 작성 -->
+                    <span class="text">Home</span>
+                </a>
+            </li>
+            <!-- 이하는 첫번째 정렬의 설명과 같음 -->
+            <li class="list">
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="person-outline"></ion-icon>
+                    </span>
+                    <span class="text">Profile</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="chatbubble-outline"></ion-icon>
+                    </span>
+                    <span class="text">Message</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="help-circle-outline"></ion-icon>
+                    </span>
+                    <span class="text">Help</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="settings-outline"></ion-icon>
+                    </span>
+                    <span class="text">Setting</span>
+                </a>
+            </li>
+            <!-- 아이콘을 밝게 빛내줄 박스를 만들꺼임 -->
+            <div class="indicator"></div>
+        </ul>
+    </div>
+    <!-- cdn으로 아이콘을 가져오기 위한 스크립트 -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

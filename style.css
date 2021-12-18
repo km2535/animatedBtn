@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+/* 전체 설정으로 마진과 패딩을 0으로 셋팅하여 추후 작업하기 편리하게 만든다. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
+body {
+  /* body태그를 flex로 만들어 그 안에 들어가는 요소들을 다루기 쉽게 한다. */
+  display: flex;
+  /* body태그 안의 내용들을 중앙으로 정렬한다. */
+  justify-content: center;
+  align-items: center;
+  /* body태그는 뷰포트 만큼 화면을 차지하게 한다. */
+  min-height: 100vh;
+  /* 배경 색 선정 */
+  background: #333;
+}
+/* navigation div를 설정한다. */
+.navigation {
+  /* 위치는 상위 태그인 dody태그와 상대적으로 위치하게 된다. */
+  position: relative;
+  /* 너비는 1개 요소의 너비를 70px로 만들예정이라 5개 요소인 350px로 설정 */
+  width: 350px; /* 70 * 5 = 350*/
+  /* 높이는 1개 요소 만큼 높게 한다. */
+  height: 70px;
+}
+/* 마찬가지로 ul태그도 li태그들을 flex로 display한다. */
+.navigation ul {
+  display: flex;
+}
+/* li태그들의 설정 */
+.navigation ul li {
+  /* ul태그를 기준으로 위치를 잡고 */
+  position: relative;
+  /* li태그들의 점들을 전부 제거한다. */
+  list-style: none;
+  /* 높이와 너비를 70px로 설정한다. */
+  width: 70px;
+  height: 70px;
+}
+/* a태그의 설정 */
+.navigation ul li a {
+  /* li태그를 기준으로 위치를 잡고 */
+  position: relative;
+  /* flex로 display하여 내부의 span태그들을 정렬한다. */
+  display: flex;
+  /* 안의 요소들을 중앙정렬하고 */
+  justify-content: center;
+  align-items: center;
+  /* flex로 span태그들을 수직으로 배치한다. */
+  flex-direction: column;
+  /* a태그의 색상을 설정 */
+  color: #fff;
+  z-index: 1;
+}
+/* 아이콘태그들을 설정한다. */
+.navigation ul li a .icon {
+  /* a태그의 상대적으로 위치 */
+  position: relative;
+  /* icon태그 자체의 글자 높이를 조정하여 텍스트와 거리를 조정 */
+  line-height: 75px;
+  /* 변형이 일어날때 시간을 설정 */
+  transition: 0.5s;
+  /* 아이콘의 크기 설정 */
+  font-size: 30px;
+}
+/* li태그에 active가 있으면 다음과 같이 icon태그를 설정한다. */
+.navigation ul li.active a .icon {
+  /* 아이콘의 크기를 20px로 설정 */
+  font-size: 20px;
+  /* -6px 만큼 y축으로 이동 */
+  transform: translateY(-6px);
+}
+/* 텍스트 테그들을 설정한다. */
+.navigation ul li a .text {
+  /* 위치는 절대값으로 설정하여 요소들을 무시한다. */
+  position: absolute;
+  /* 글자 크기를 설정한다. */
+  font-size: 12px;
+  /* 글자 색상 설정 */
+  color: #fff;
+  /* navigation 태그가 차지하는 높이에서 20px만큼 */
+  bottom: 20px;
+  /* 글자 두께를 설정한다. */
+  font-weight: 400;
+  /* 변형이 일어날때 걸리는 시간을 설정 */
+  transition: 0.25s;
+  /* 대문자로 바꾼다. */
+  text-transform: uppercase;
+  /* scale을 0으로 만들어 보이지 않게 한다. */
+  transform: scale(0);
+}
+/* li태그에 active가 있으면 text태그를 다음과 같이 설정한다. */
+.navigation ul li.active a .text {
+  /* scale을 1로 만들어 원래데로 만든다. */
+  transform: scale(1);
+}
+/* 빛이 나는 상자를 만들꺼임 */
+.indicator {
+  /* 절대값으로 설정하여 요소들을 무시한다. */
+  position: absolute;
+  /* 너비와 높이를 70px로 설정 */
+  width: 70px;
+  height: 70px;
+  /* 모서리 약간 둥글게 */
+  border-radius: 10px;
+  /* 변형 시간을 설정 */
+  transition: 0.5s;
+}
+/* 첫번째 li태그에 active가 있다면 indicator의 설정을 다음과 같이 한다. */
+.navigation ul li:nth-child(1).active ~ .indicator {
+  /* 배경색 설정 */
+  background: #f53b57;
+  /* 그림자를 적절하게 셋팅하여 빛이나는 것처럼 한다.  */
+  box-shadow: 0 15px 25px #f53b5799;
+  /* 계산만큼 x축으로 이동 */
+  transform: translateX(calc(70px * 0));
+}
+/* 두번째 li태그에 active가 있다면 indicator의 설정을 다음과 같이 한다. */
+.navigation ul li:nth-child(2).active ~ .indicator {
+  /* 배경색 설정 */
+  background: #5d62fb;
+  /* 그림자를 적절하게 셋팅하여 빛이나는 것처럼 한다.  */
+  box-shadow: 0 15px 25px #5d62fb99;
+  /* 계산만큼 x축으로 이동 */
+  transform: translateX(calc(70px * 1));
+}
+/* 세번째 li태그에 active가 있다면 indicator의 설정을 다음과 같이 한다. */
+.navigation ul li:nth-child(3).active ~ .indicator {
+  /* 배경색 설정 */
+  background: #05c46b;
+  /* 그림자를 적절하게 셋팅하여 빛이나는 것처럼 한다.  */
+  /* 그림자를 적절하게 셋팅하여 빛이나는 것처럼 한다.  */
+  box-shadow: 0 15px 25px #05c46b99;
+  /* 계산만큼 x축으로 이동 */
+  transform: translateX(calc(70px * 2));
+}
+/* 네번째 li태그에 active가 있다면 indicator의 설정을 다음과 같이 한다. */
+.navigation ul li:nth-child(4).active ~ .indicator {
+  /* 배경색 설정 */
+  background: #0fbcf9;
+  /* 그림자를 적절하게 셋팅하여 빛이나는 것처럼 한다.  */
+  box-shadow: 0 15px 25px #0fbcf999;
+  /* 계산만큼 x축으로 이동 */
+  transform: translateX(calc(70px * 3));
+}
+/* 다섯번째 li태그에 active가 있다면 indicator의 설정을 다음과 같이 한다. */
+.navigation ul li:nth-child(5).active ~ .indicator {
+  /* 배경색 설정 */
+  background: #ffa801;
+  /* 그림자를 적절하게 셋팅하여 빛이나는 것처럼 한다.  */
+  box-shadow: 0 15px 25px #ffa80199;
+  /* 계산만큼 x축으로 이동 */
+  transform: translateX(calc(70px * 4));
+}
